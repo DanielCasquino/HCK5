@@ -1,0 +1,41 @@
+Mandar request a localhost:8080/groups CON POST
+
+{
+  "name": "DBP",
+  "persons": []
+}
+
+Mandar request a localhost:8080/persons CON POST
+
+{
+  "name": "Aleksander",
+  "grupos": []
+}
+
+{
+  "name": "Gabriel",
+  "grupos": []
+}
+
+{
+  "name": "Camilo",
+  "grupos": []
+}
+
+{
+  "name": "Sebastian",
+  "grupos": []
+}
+
+{
+  "name": "Daniel",
+  "grupos": []
+}
+
+Mandar request a localhost:8080/groups/{idGrupo}/{idPersona} CON PUT para añadir personas a los grupos
+
+localhost:8080/groups/1/1
+localhost:8080/groups/1/2
+localhost:8080/groups/1/3
+localhost:8080/groups/1/4
+localhost:8080/groups/1/5

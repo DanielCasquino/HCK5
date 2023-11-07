@@ -1,7 +1,17 @@
-import { HomePage, GroupsPage, ProfilePage, PersonsPage } from './pages';
+import {
+  HomePage,
+  GroupsPage,
+  ProfilePage,
+  PersonsPage,
+  TypesPage,
+} from './pages';
 import { withNavigationWatcher } from './contexts/navigation';
 
 const routes = [
+  {
+    path: '/types',
+    element: TypesPage,
+  },
   {
     path: '/groups',
     element: GroupsPage,

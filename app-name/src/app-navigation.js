@@ -5,7 +5,7 @@ export const navigation = [
     icon: 'home',
   },
   {
-    text: 'Examples',
+    text: 'Carpetita',
     icon: 'folder',
     items: [
       {
@@ -19,6 +19,10 @@ export const navigation = [
       {
         text: 'Persons',
         path: '/persons',
+      },
+      {
+        text: 'Group Types',
+        path: '/types',
       },
     ],
   },

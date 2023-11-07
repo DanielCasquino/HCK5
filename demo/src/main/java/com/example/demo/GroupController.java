@@ -26,24 +26,24 @@ public class GroupController {
     private PersonRepository personRepository;
 
     @GetMapping
-    public ResponseEntity<List<Test>> groups() {
-        List<Test> query = groupRepository.findAll();
+    public ResponseEntity<List<Grupo>> groups() {
+        List<Grupo> query = groupRepository.findAll();
         return new ResponseEntity<>(query, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<String> createGroup(@RequestBody Test group) {
+    public ResponseEntity<String> createGroup(@RequestBody Grupo group) {
         groupRepository.save(group);
         return ResponseEntity.status(201).body("Group created");
     }
 
     @PutMapping("/{groupId}/{personId}")
     public ResponseEntity<String> subscribePerson(@PathVariable Long groupId, @PathVariable Long personId) {
-        Optional<Test> groupQuery = groupRepository.findById(groupId);
+        Optional<Grupo> groupQuery = groupRepository.findById(groupId);
         if (groupQuery.isPresent()) {
             Optional<Person> personQuery = personRepository.findById(personId);
             if (personQuery.isPresent()) {
-                Set<Test> personGroups = personQuery.get().getGrupos();
+                Set<Grupo> personGroups = personQuery.get().getGrupos();
                 personGroups.add(groupQuery.get()); // Añade el el grupo a la lista de grupos de la persona
                 personQuery.get().setGrupos(personGroups); // Establece el contenido de sus grupos
                 personRepository.save(personQuery.get());
@@ -60,14 +60,14 @@ public class GroupController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Test> getGroup(@PathVariable Long id) {
-        Optional<Test> query = groupRepository.findById(id);
+    public ResponseEntity<Grupo> getGroup(@PathVariable Long id) {
+        Optional<Grupo> query = groupRepository.findById(id);
         return new ResponseEntity<>(query.get(), HttpStatus.OK);
     }
 
     @GetMapping("/persons/{id}")
     public ResponseEntity<Set<Person>> getGroupsPersons(@PathVariable Long id) {
-        Optional<Test> query = groupRepository.findById(id);
+        Optional<Grupo> query = groupRepository.findById(id);
         if (query.isPresent()) {
             return new ResponseEntity<Set<Person>>(query.get().getPersons(), HttpStatus.OK);
         } else {

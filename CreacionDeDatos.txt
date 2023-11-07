@@ -1,8 +1,35 @@
+Mandar request a localhost:8080/types CON POST
+
+{
+  "name": "Amigos"
+}
+
+{
+  "name": "Trabajo"
+}
+
+{
+  "name": "Universidad"
+}
+
 Mandar request a localhost:8080/groups CON POST
 
 {
   "name": "DBP",
-  "persons": []
+  "persons":[],
+  "type_id":3
+}
+
+{
+  "name": "Mondongo",
+  "persons":[],
+  "type_id":1
+}
+
+{
+  "name": "Trabajo Final",
+  "persons":[],
+  "type_id":2
 }
 
 Mandar request a localhost:8080/persons CON POST
@@ -39,3 +66,10 @@ localhost:8080/groups/1/2
 localhost:8080/groups/1/3
 localhost:8080/groups/1/4
 localhost:8080/groups/1/5
+
+localhost:8080/groups/2/1
+localhost:8080/groups/2/2
+localhost:8080/groups/2/5
+
+localhost:8080/groups/3/3
+localhost:8080/groups/3/5

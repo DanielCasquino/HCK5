@@ -15,7 +15,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "person")
+@Table(name = "persona")
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,14 +25,14 @@ public class Person {
     private String name;
 
     @ManyToMany
-    @JoinTable(name = "grupos_persons", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns = @JoinColumn(name = "grupos_id"))
+    @JoinTable(name = "grupos_personas", joinColumns = @JoinColumn(name = "persona_id"), inverseJoinColumns = @JoinColumn(name = "grupos_id"))
     @JsonIgnore
-    private Set<Test> grupos;
+    private Set<Grupo> grupos;
 
     public Person() {
     }
 
-    public Person(Long id, String name, Set<Test> grupos) {
+    public Person(Long id, String name, Set<Grupo> grupos) {
         this.id = id;
         this.name = name;
         this.grupos = grupos;
@@ -42,7 +42,7 @@ public class Person {
         return name;
     }
 
-    public Set<Test> getGrupos() {
+    public Set<Grupo> getGrupos() {
         return grupos;
     }
 
@@ -58,7 +58,7 @@ public class Person {
         this.id = id;
     }
 
-    public void setGrupos(Set<Test> grupos) {
+    public void setGrupos(Set<Grupo> grupos) {
         this.grupos = grupos;
     }
 }

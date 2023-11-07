@@ -43,11 +43,11 @@ public class PersonController {
     // persons/groups/x
     // grupos a los que pertenece la persona
     @GetMapping("/groups/{id}")
-    public ResponseEntity<Set<Test>> getPersonsGroups(@PathVariable Long id) {
+    public ResponseEntity<Set<Grupo>> getPersonsGroups(@PathVariable Long id) {
         Optional<Person> query = personRepository.findById(id);
         // Si se encuentra a la persona
         if (query.isPresent()) {
-            Set<Test> memberIn = query.get().getGrupos();
+            Set<Grupo> memberIn = query.get().getGrupos();
             return new ResponseEntity<>(memberIn, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

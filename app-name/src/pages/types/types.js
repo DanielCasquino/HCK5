@@ -6,12 +6,12 @@ import DataGrid, {
   FilterRow,
 } from 'devextreme-react/data-grid';
 
-function Group() {
+function Type() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     // Fetch the data from your JSON endpoint
-    fetch('http://localhost:8080/groups')
+    fetch('http://localhost:8080/types')
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -24,7 +24,7 @@ function Group() {
 
   return (
     <React.Fragment>
-      <h2 className={'content-block'}>Groups</h2>
+      <h2 className={'content-block'}>Group Types</h2>
       <DataGrid
         dataSource={data}
         showBorders={false}
@@ -38,26 +38,6 @@ function Group() {
         <Column
           dataField={'name'}
           caption={'Name'}
-          width={180}
-          hidingPriority={2}
-        />
-        <Column
-          dataField={'type_id'}
-          caption={'Type'}
-          width={90}
-          hidingPriority={2}
-        />
-        <Column
-          caption="Persons"
-          dataType="string"
-          calculateCellValue={(rowData) => {
-            return rowData.persons.map((person) => person.name).join(', ');
-          }}
-        />
-        <Column
-          dataField={'persons.length'}
-          caption={'Number of Persons'}
-          dataType="number"
           alignment="left"
           hidingPriority={2}
         />
@@ -66,4 +46,4 @@ function Group() {
   );
 }
 
-export default Group;
+export default Type;
